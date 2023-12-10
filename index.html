@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>网页示例</title>
+  <style>
+    body {
+      background-color: #000000;
+    }
+
+    h1 {
+      font-size: 60px;
+      color: #39c5bb;
+      text-align: center;
+    }
+
+    .description {
+      font-size: 22px;
+      font-family: 楷体;
+      color: #39c5bb;
+      text-align: center;
+    }
+
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #39c5bb;
+      padding: 10px;
+    }
+
+    .banner img {
+      width: 100%; /* 设置宽度为100% */
+      height: auto; /* 设置高度为自动 */
+    }
+
+    .sec-1-img-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .sec-1-img-wrap img {
+      width: 200px;
+      height: auto;
+    }
+
+    .img-hover-effect {
+      transition: all 0.3s ease;
+    }
+
+    .img-hover-effect:hover {
+      transform: scale(1.2);
+    }
+
+    .blur {
+      filter: blur(5px);
+    }
+
+    footer {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <!-- <a href="page/page1.html"> -->
+      <img src="image/miku88.png" alt="miku88">
+    </a>
+  </div>
+  <h1>HATSUNE MIKU</h1>
+  <p class="description">初音未来（日语：初音（はつね） ミク，平文式罗马字：Hatsune Miku）<br>
+    是Crypton Future Media株式会社企划、开发、贩售的，使用YAMAHA<br>
+    的VOCALOID引擎和Crypton自主研发的NT歌声合成引擎的声音库软件<br>
+    及其拟人化形象。<br>
+    本网页主要介绍关于她的知名梗。<br>
+    （点击下列图像，跳转网页）</p>
+  <div class="sec-1-img-wrap">
+    <a href="page/page1.html">
+      <img src="image/miku353.png" class="img-hover-effect">
+    </a>
+    <a href="page/page2.html">
+      <img src="image/miku455.png" class="img-hover-effect">
+    </a>
+    <a href="page/page3.html">
+      <img src="image/miku564.png" class="img-hover-effect">
+    </a>
+    <a href="page/page4.html">
+      <img src="image/miku677.png" class="img-hover-effect">
+    </a>
+  </div>
+  <footer>
+    <p>寝室主页：<a href="https://ghostzly.github.io/domitory/">https://ghostzly.github.io/domitory/</a></p>
+  </footer>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('.sec-1-img-wrap img');
+      images.forEach(function(image) {
+        image.addEventListener('mouseenter', function() {
+          this.classList.add('img-hover-effect');
+          images.forEach(function(otherImage) {
+            if (otherImage !== image) {
+              otherImage.classList.add('blur');
+            }
+          });
+        });
+        image.addEventListener('mouseleave', function() {
+          this.classList.remove('img-hover-effect');
+          images.forEach(function(otherImage) {
+            if (otherImage !== image) {
+              otherImage.classList.remove('blur');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
